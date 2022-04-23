@@ -27,7 +27,7 @@ function BooksCard(props: { item: any }): ReactElement {
           <div className=" mt-2 font-bold text-xl">{item.title}</div>
           <div className="text-slate-500">
             {item.authors.map((el: string) =>
-              el !== item.authors.slice(-1) ? el + " & " : el
+              el != item.authors.slice(-1) ? el + " & " : el
             )}
           </div>
           <div className=" text-slate-500 text-sm">

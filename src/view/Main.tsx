@@ -67,7 +67,12 @@ export default function Main(props: any): ReactElement {
       <div className="flex justify-center flex-wrap p-4">
         {books &&
           books
-            .filter((item: any) => item.title.toLowerCase().includes(search))
+            .filter(
+              (item: any) =>
+                item.authors.some((e: any) =>
+                  new RegExp(search, "i").test(e)
+                ) || item.title.toLowerCase().includes(search)
+            )
             .map((item: any) => <BooksCard key={item.id} item={item} />)}
       </div>
       <div className="flex space-x-12 items-center justify-center p-4">
